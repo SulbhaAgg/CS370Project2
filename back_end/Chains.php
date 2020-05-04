@@ -19,10 +19,13 @@ session_start();
 		<div class="col-lg-12">
 		<div id="content">
 			<h1>Hotels</h1>
-			<h2 class ="main">Select A Chain To View Hotels</h2>
-			
+			<h3><a href ="chainOne.php" >Chain 1</h3>
+			<br>
+      <h3> <a href ="chainTwo.php" >Chain 2 </h3>
+      <br>
+      <h3><a href ="chainThree.php" > Chain 3 </h3>
 			<hr>
-			<button class="btn btn-default btn-lg"><a href="Chains.php">Chains</button>
+			
 		  </div>	
 		</div>	
 	</div>	
@@ -43,8 +46,8 @@ session_start();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-<li class="active"><a href="landing.php">Home</a></li>
-<li><a href="Chains.php">Chain Select</a></li>
+<li><a href="landing.php">Home</a></li>
+<li class="active"><a href="Chains.php">Chain Select</a></li>
 <li><a href="landing.php">Map</a></li>
 
 <?php 

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 include("permissions.php");
 $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
@@ -74,6 +74,15 @@ mysqli_query($con, $insertuserquery) or die("4: Insert user query failed"); //er
                     <li><a href="landing.php">Home</a></li>
                     <li><a href="About.html">About</a></li>
                     <li><a href="Chains.php">Chains</a></li>
+                    <?php 
+if($_SESSION['loggedin'] == true ){
+  echo '<li><a href="myReservations.php">Your Reservations</a></li>';
+}
+if($_SESSION["admin1"] == "yes"){
+  echo '<li><a href="hotelCreator.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservations.php">View All Reservations</a></li>';
+}
+?>
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">

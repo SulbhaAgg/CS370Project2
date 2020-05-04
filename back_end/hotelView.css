@@ -1,5 +1,5 @@
 body {
-    background: url(https://media.architecturaldigest.com/photos/5c7989da22644c2d41b67df8/master/w_4272,h_2670,c_limit/Ritz%20Carlton%20Astana.jpg);
+    background: url(https://www.itl.cat/pngfile/big/80-800090_desktop-wallpaper-hd-beautiful-night-dark-wallpapers-fondos.jpg);
     background-size: cover;
     background-position: center;
     font-family: 'Lato', sans-serif;
@@ -15,15 +15,18 @@ body {
 
 
 .navbar-inverse .navbar-nav>li>a {
-	color: white;
+	color: white;}
+.h3 > a {
+    color: black;
 }
 #content { 
 	text-align: center;
-	padding-top:25%; 
+	padding-top:15%; 
 	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 				 0px 8px 13px rgba(0,0,0,0.1),
 				 0px 18px 23px rgba(0,0,0,0.1)
  }
+ 
 h1 {
 	font-weight: 700;
 	font-size: 5em;

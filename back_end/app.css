@@ -1,9 +1,9 @@
 body {
-    background: url(https://media.architecturaldigest.com/photos/5c7989da22644c2d41b67df8/master/w_4272,h_2670,c_limit/Ritz%20Carlton%20Astana.jpg);
+    background: url(https://47ulw640o9fpqq4la1v9y43r-wpengine.netdna-ssl.com/wp-content/uploads/2015/09/iStock-995624510-3000x1500.jpg);
     background-size: cover;
     background-position: center;
     font-family: 'Lato', sans-serif;
-    color: white;
+    color:black;
 }
 
  .navbar-inverse {
@@ -15,7 +15,9 @@ body {
 
 
 .navbar-inverse .navbar-nav>li>a {
-	color: white;
+	color: white;}
+.h3 > a {
+    color: black;
 }
 #content { 
 	text-align: center;

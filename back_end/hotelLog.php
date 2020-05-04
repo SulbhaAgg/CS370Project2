@@ -34,6 +34,9 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
  $existinginfo = mysqli_fetch_assoc($namecheck);
  $salt=$existinginfo["salt"];
  $hash=$existinginfo["hash"];
+ $adminChain1 = $existinginfo["adminChain1"];
+ $adminChain2 = $existinginfo["adminChain2"];
+ $adminChain3 = $existinginfo["adminChain3"];
 
  $loginhash = crypt($password, $salt);
  if($hash!=$loginhash)
@@ -45,6 +48,9 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
  echo "0" ;
  $_SESSION["loggedin"] = true;
  $_SESSION["username"] = $username;
+ $_SESSION["admin1"] = $adminChain1;
+ $_SESSION["admin2"] = $adminChain2;
+ $_SESSION["admin3"] = $adminChain3;
  unset($_SESSION["Error"]);
  header("Location: landing.php");
 }
@@ -76,8 +82,8 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="landing.php">Home</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="landing.php">Chain Select</a></li>
+                    <li><a href="About.php">About</a></li>
+                    <li><a href="Chains.php">Chains</a></li>
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">

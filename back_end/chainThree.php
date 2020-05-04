@@ -6,7 +6,7 @@ session_start();
 ?>
 <html>
 <head>
-	<title>Hotel</title>
+	<title>Chain 3</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="app.css">
@@ -18,11 +18,11 @@ session_start();
 	<div class="row">
 		<div class="col-lg-12">
 		<div id="content">
-			<h1>Hotels</h1>
-			<h2 class ="main">Select A Chain To View Hotels</h2>
+			<h1>Chain 3</h1>
+			<h3> Enjoy The Website</h3>
 			
 			<hr>
-			<button class="btn btn-default btn-lg"><a href="Chains.php">Chains</button>
+			<button class="btn btn-default btn-lg"><a href="chainThreeHotels.php">View Hotels</button>
 		  </div>	
 		</div>	
 	</div>	
@@ -43,13 +43,18 @@ session_start();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-<li class="active"><a href="landing.php">Home</a></li>
-<li><a href="Chains.php">Chain Select</a></li>
+<li><a href="landing.php">Home</a></li>
+<li><a href="chainThreeHotels.php">Hotels</a></li>
+<li class="active"><a href="Chains.php">Chains</a></li>
 <li><a href="landing.php">Map</a></li>
 
 <?php 
 if($_SESSION['loggedin'] == true ){
-  echo '<li><a href="landing.php">Your Reservations</a></li>';
+  echo '<li><a href="myReservations.php">Your Reservations</a></li>';
+}
+if( $_SESSION['loggedin'] == true && strcmp($_SESSION["admin3"],'yes') ==0){
+  echo '<li><a href="hotelCreatorThree.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsOne.php">View All Reservations</a></li>';
 }
 ?>
       </ul>

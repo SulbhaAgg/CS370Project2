@@ -6,27 +6,25 @@ session_start();
 ?>
 <html>
 <head>
-	<title>Hotel</title>
+	<title>Chain 2 Hotels</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="app.css">
+<link rel="stylesheet" type="text/css" href="hotelView.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="container">
-	<div class="row">
-		<div class="col-lg-12">
-		<div id="content">
-			<h1>Hotels</h1>
-			<h2 class ="main">Select A Chain To View Hotels</h2>
-			
-			<hr>
-			<button class="btn btn-default btn-lg"><a href="Chains.php">Chains</button>
-		  </div>	
-		</div>	
-	</div>	
+  <div class="row">
+    <div class="col-lg-12">
+    <div id="content">
+      
+      
+      </div>  
+    </div>  
+  </div>  
 </div>
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,13 +41,18 @@ session_start();
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-<li class="active"><a href="landing.php">Home</a></li>
-<li><a href="Chains.php">Chain Select</a></li>
+<li><a href="landing.php">Home</a></li>
+<li><a href="chainTwoHotels.php">Hotels</a></li>
+<li class="active"><a href="Chains.php">Chains</a></li>
 <li><a href="landing.php">Map</a></li>
 
 <?php 
 if($_SESSION['loggedin'] == true ){
-  echo '<li><a href="landing.php">Your Reservations</a></li>';
+  echo '<li><a href="myReservations.php">Your Reservations</a></li>';
+}
+if( $_SESSION['loggedin'] == true && strcmp($_SESSION["admin1"],'yes') ==0){
+  echo '<li><a href="hotelCreatorOne.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsOne.php">View All Reservations</a></li>';
 }
 ?>
       </ul>
@@ -72,3 +75,36 @@ if($_SESSION['loggedin'] == true ){
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Location</th>
+      <th scope="col">Luxury Rooms Available</th>
+      <th scope="col">Luxury Room Price</th>
+      <th scope="col">Standard Rooms Available</th>
+      <th scope="col">Standard Rooms Price</th>
+      <th scope="col">Book</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $chainCheckQuery = "SELECT hotelChain, hotelLocationI, hotelLocationJ, numLuxury, priceLuxury, numstandard, priceStandard FROM `hotel` WHERE hotelChain = 'Chain 2'";
+    $chainCheck = mysqli_query($con,$chainCheckQuery)or die("Well that didn't work");
+    $num_results = mysqli_num_rows($chainCheck);
+
+    for($i = 1; $i <= $num_results; $i++ ){
+      echo '<tr>';
+      $row = mysqli_fetch_array($chainCheck);
+        echo '<th scope ="row">' . $row['hotelLocationI'] . "," . $row['hotelLocationJ'] . '</th>';
+        echo '<td>' . $row['numLuxury'] . '</td>';
+        echo '<td>' . $row['priceLuxury'] . '</td>';
+        echo '<td>' . $row['numstandard'] . '</td>';
+        echo '<td>' . $row['priceStandard'] . '</td>';
+        echo '<td> Book</td>';
+        echo '</tr>';
+    }
+    ?>
+ </tbody>
+</table>
+</body>
+</html>
