@@ -32,7 +32,7 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">likeHome</a>
+	      <a class="navbar-brand" href="index.php">likeHome</a>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
@@ -44,11 +44,11 @@
 				<li><div class="mb-3 mr-4" style="margin-left:8%" >
 					<input type="text" class="form-control checkin_date" placeholder="date">
 				</div></li>
-				<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-				<li class="nav-item"><a href="map.html" class="nav-link">Map</a></li>
-	        	<li class="nav-item"><a href="room.html" class="nav-link">Rooms</a></li>
-				<li class="nav-item"><a href="Login.html" class="nav-link">Log&nbsp;In</a></li>
-				<li class="nav-item"><a href="register.html" class="nav-link" style = "font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
+				<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="map.php" class="nav-link">Map</a></li>
+	        	<li class="nav-item"><a href="room.php" class="nav-link">Rooms</a></li>
+				<li class="nav-item"><a href="Login.php" class="nav-link">Log&nbsp;In</a></li>
+				<li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -99,9 +99,9 @@
         <div class="carousel-rooms owl-carousel ftco-animate">
         	<div class="item">
         		<div class="room-wrap">
-        			<a href="room.html" class="img" style="background-image: url(images/Hotel1.jpg);"></a>
+        			<a href="room.php" class="img" style="background-image: url(images/Hotel1.jpg);"></a>
         			<div class="text pt-4 pl-lg-5">
-        				<h2><a href="room.html">Comfort Hotel</a></h2>
+        				<h2><a href="room.php">Comfort Hotel</a></h2>
         				<p class="rate">
         					<span class="icon-star"></span>
         					<span class="icon-star"></span>
@@ -115,9 +115,9 @@
         	</div>
         	<div class="item">
         		<div class="room-wrap">
-        			<a href="room.html" class="img" style="background-image: url(images/Hotel2.jpg);"></a>
+        			<a href="room.php" class="img" style="background-image: url(images/Hotel2.jpg);"></a>
         			<div class="text pt-4 pl-lg-5">
-        				<h2><a href="room.html">Courtyard</a></h2>
+        				<h2><a href="room.php">Courtyard</a></h2>
         				<p class="rate">
         					<span class="icon-star"></span>
         					<span class="icon-star"></span>
@@ -131,9 +131,9 @@
         	</div>
         	<div class="item">
         		<div class="room-wrap">
-        			<a href="room.html" class="img" style="background-image: url(images/Hotel3.jpg);"></a>
+        			<a href="room.php" class="img" style="background-image: url(images/Hotel3.jpg);"></a>
         			<div class="text pt-4 pl-lg-5">
-        				<h2><a href="room.html">Crowne Plaza</a></h2>
+        				<h2><a href="room.php">Crowne Plaza</a></h2>
         				<p class="rate">
         					<span class="icon-star"></span>
         					<span class="icon-star"></span>
@@ -343,9 +343,7 @@
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
 
-  <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/jquery.waypoints.min.js"></script>
   <script src="js/jquery.stellar.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
