@@ -16,7 +16,8 @@
 				<div class="image-holder">
 					<img src="images/hotel.png" alt="">
 				</div>
-				<form action="" id = "registration" >
+
+				<form id = "login" action="" style= "padding-top: 30px;">
 					<h3>Sign Up</h3>
 					<div class="form-holder active">
 						<input type="text" placeholder="name" class="form-control">
@@ -27,6 +28,9 @@
 					<div class="form-holder">
 						<input type="password" placeholder="Password" class="form-control" style="font-size: 15px;">
 					</div>
+					<div class="form-holder">
+						<input type="password" placeholder="Confirm Password" class="form-control" style="font-size: 15px;">
+					</div>
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" checked> I agree all statement in <a href="#">Terms & Conditions</a>
@@ -34,8 +38,8 @@
 						</label>
 					</div>
 					<div class="form-login">
-						<button>Sign up</button>
-						<p>Already Have account? <a href="login.php">Login</a></p>
+						<button>Login</button>
+						<p>Don't have an account? <a href="index.php">Register</a></p>
 					</div>
 				</form>
 
