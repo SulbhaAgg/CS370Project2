@@ -29,17 +29,21 @@ session_start();
         $numStan = mysqli_real_escape_string($con,$_POST["numStan"]);
       $priceStan = mysqli_real_escape_string($con,$_POST["priceStan"]);
         list($locationI) = explode(',', $location);
-      $locationJ = substr($location, strpos($location, ",") + 1);
-
-     
+      $locationJ = substr($location, strpos($location, ",") + 1); 
       $price;
     //  echo "". $username . $roomType . $priceStan . $numStan . $priceLux . $numLux . $location . $amtRoom .  $currentDate . $fromDate  . $toDate .  "  .......     ";
+      if($roomType == "Luxury"){
+        $price = $priceLux * $amtRoom;
+      }else{
+        $price = $priceStan * $amtRoom;
+      }
+
       if($roomType =="Luxury"){
       $numLux = $numLuxury - $amtRoom;
-      $updatequery = "UPDATE `hotel` SET `numLuxury` = '$numLuxury' WHERE `hotelLocationI` = '$locationI'  AND `hotelLocationJ` = '$hotelLocationJ'";
+     
      }else{
       $numStan = $numStan - $amtRoom;
-       $updatequery = "UPDATE `hotel` SET `numStandard` = '$numStan' WHERE `hotelLocationI` = '$locationI'  AND `hotelLocationJ` = '$hotelLocationJ'";
+     
      }
 //echo "" . $price ."  .....         ";
 	
@@ -62,14 +66,15 @@ if($roomType =="Luxury"){//updates the inventory of luxury rooms
      }
 mysqli_query($con, $insertresquery) or die("4: Insert reservation query failed"); //error code 4  insertquery failed
         echo "success";
-       unset( $_SESSION["ErrorTConfirm"]);
-       $_SESSION["ErrorCTConfirm"] = "Success";
+       //unset( $_SESSION["ErrorTConfirm"]);
+       //$_SESSION["ErrorCTConfirm"] = "Success";
     header("Location: myReservations.php");
     exit;
     }
     else{
-      $_SESSION["ErrorCTConfirm"] = "Please Log in before attempting to make Reservation. Thank You.";
-      header("Location: chainTwoBook.php");
+      die("Yasaaasaas");
+     // $_SESSION["ErrorCTConfirm"] = "Please Log in before attempting to make Reservation. Thank You.";
+     // header("Location: chainTwoBook.php");
     }
     
 }
