@@ -1,31 +1,80 @@
-<!DOCTYPE html>
+<?php
+include("permissions.php");
+
+$con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+	or die ('Could not connect to the database server' . mysqli_connect_error());
+	session_start();
+
+//$con->close();
+
+//$con->close();
+
+//$con->close();
+
+//$con->close();
+	
+	 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+	$_SESSION["$loggedin"] = false;
+	$username = mysqli_real_escape_string($con,$_POST["username"]);
+	$password = mysqli_real_escape_string($con,$_POST["pass"]);
+
+	//check if name exists
+	$namecheckquery = "SELECT username,hash,salt,adminChain1,adminChain2,adminChain3 FROM users WHERE username='$username'";
+ $namecheck=mysqli_query($con,$namecheckquery)or die("2: Name check query failed");//error code #2 name check query failed
+
+ if(mysqli_num_rows($namecheck)==0)
+ {
+ 	$_SESSION["Error"] = "Either no user with name or more than 1";
+ 	header("Location: index.php");
+  exit();
+ }
+ //get login info from query
+ $existinginfo = mysqli_fetch_assoc($namecheck);
+ $salt=$existinginfo["salt"];
+ $hash=$existinginfo["hash"];
+ $adminChain1 = $existinginfo["adminChain1"];
+ $adminChain2 = $existinginfo["adminChain2"];
+ $adminChain3 = $existinginfo["adminChain3"];
+
+ $loginhash = crypt($password, $salt);
+ if($hash!=$loginhash)
+ {
+  $_SESSION["Error"] =" Incorrect Password";
+  header("Location: index.php");
+  exit();
+ }
+ echo "0" ;
+ $_SESSION["loggedin"] = true;
+ $_SESSION["username"] = $username;
+ $_SESSION["admin1"] = $adminChain1;
+ $_SESSION["admin2"] = $adminChain2;
+ $_SESSION["admin3"] = $adminChain3;
+ unset($_SESSION["Error"]);
+ header("Location: landing.php");
+}
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Registration for likeHome</title>
+		<title>Login for likeHome</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 		<!-- STYLE CSS -->
 		<link rel="stylesheet" href="css/style.css">
 	</head>
-
 	<body>
-
 		<div class="wrapper">
 			<div class="inner">
 				<div class="image-holder">
 					<img src="images/hotel.png" alt="">
 				</div>
-				<form action="" id = "registration" >
-					<h3>Sign Up</h3>
+				<form id = "login" action="index.php" method ="post" style= "padding-top: 68px;">
+					<h3>Login</h3>
 					<div class="form-holder active">
-						<input type="text" placeholder="name" class="form-control">
+						<input type="text" name="username" placeholder="name" class="form-control">
 					</div>
 					<div class="form-holder">
-						<input type="text" placeholder="e-mail" class="form-control">
-					</div>
-					<div class="form-holder">
-						<input type="password" placeholder="Password" class="form-control" style="font-size: 15px;">
+						<input type="password" name ="pass" placeholder="Password" class="form-control" style="font-size: 15px;">
 					</div>
 					<div class="checkbox">
 						<label>
@@ -34,14 +83,16 @@
 						</label>
 					</div>
 					<div class="form-login">
-						<button>Sign up</button>
-						<p>Already Have account? <a href="login.php">Login</a></p>
+						<button type = "submit">Login</button>
+						<?php
+						if(isset($_SESSION["Error"]))
+						echo '<p class = "statusMessage">' .$_SESSION["Error"].'</p>';
+						?>
+						<p>Don't have an account? <a href="register.php">Register</a></p>
 					</div>
 				</form>
-
 			</div>
 		</div>
-
 		<script src="js/jquery-3.3.1.min.js"></script>
 		<script src="js/main.js"></script>
 	</body>

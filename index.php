@@ -36,14 +36,16 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-				<li>
-					<form action = "" class = "Search">
-						<i class="fas fa-search" style = "color:white;"></i>&nbsp;<input type = "text" placeholder= "search" id = "search" >
-					</form>
+				<li class="nav-item">
+						<div class="searchbar">
+							<input type="text" name="search" placeholder="Search..">
+						</div>
+					</li>
+				<li class="nav-item" >
+					<div class="mb-3 mr-4" style="margin-left:8%; width: 30%;" >
+						<input type="text" class="form-control checkin_date" placeholder="date">
+					</div>
 				</li>
-				<li><div class="mb-3 mr-4" style="margin-left:8%" >
-					<input type="text" class="form-control checkin_date" placeholder="date">
-				</div></li>
 				<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
 				<li class="nav-item"><a href="map.php" class="nav-link">Map</a></li>
 	        	<li class="nav-item"><a href="room.php" class="nav-link">Rooms</a></li>
