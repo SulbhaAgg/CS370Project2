@@ -87,21 +87,28 @@ if( $_SESSION['loggedin'] == true && strcmp($_SESSION["admin1"],'yes') ==0){
     </tr>
   </thead>
   <tbody>
-    <?php
-    $chainCheckQuery = "SELECT hotelChain, hotelLocationI, hotelLocationJ, numLuxury, priceLuxury, numstandard, priceStandard FROM `hotel` WHERE hotelChain = 'Chain 1'";
+   <?php
+    $chainCheckQuery = "SELECT id,hotelChain, hotelLocationI, hotelLocationJ, numLuxury, priceLuxury, numStandard, priceStandard FROM `hotel` WHERE hotelChain = 'Chain 1'";
     $chainCheck = mysqli_query($con,$chainCheckQuery)or die("Well that didn't work");
     $num_results = mysqli_num_rows($chainCheck);
 
     for($i = 1; $i <= $num_results; $i++ ){
+      echo '<form action="chainOneBook.php" method="post">';
       echo '<tr>';
       $row = mysqli_fetch_array($chainCheck);
-        echo '<th scope ="row">' . $row['hotelLocationI'] . "," . $row['hotelLocationJ'] . '</th>';
-        echo '<td>' . $row['numLuxury'] . '</td>';
-        echo '<td>' . $row['priceLuxury'] . '</td>';
-        echo '<td>' . $row['numstandard'] . '</td>';
-        echo '<td>' . $row['priceStandard'] . '</td>';
-        echo '<td> Book</td>';
+      echo '<input type = "hidden" name = "locI" '. 'value ="' . $row['hotelLocationI'] . ',' . $row['hotelLocationJ'] .'">';
+        echo '<th name = "locI" scope ="row" '. 'value ="' . $row['hotelLocationI'] . ',' . $row['hotelLocationJ'] .'">'  . $row['hotelLocationI'] . "," . $row['hotelLocationJ'] . '</th>';
+         echo '<input type = "hidden" name = "numLux" '. 'value ="' .$row['numLuxury'] .'" >';
+        echo '<td name ="numLux" ' . 'value = "'. $row['numLuxury'] .'" >' . $row['numLuxury'] . '</td>';
+         echo '<input type = "hidden" name = "priceLux" '. 'value ="' .$row['priceLuxury'] .'" >';
+        echo '<td name ="priceLux"' . 'value ="' . $row['priceLuxury'] .'" >' . $row['priceLuxury'] . '</td>';
+         echo '<input type = "hidden" name = "numStan" '. 'value ="' . $row['numStandard'] .'">';
+        echo '<td name ="numStan"' . 'value ="' . $row['numStandard'] .'">' . $row['numStandard'] . '</td>';
+         echo '<input type = "hidden" name = "priceStan" '. 'value ="' . $row['priceStandard'] .'" >';
+        echo '<td name =" priceStan"' . 'value ="' . $row['priceStandard'] .'" >' . $row['priceStandard'] . '</td>';
+        echo '<td name ="submit" ><button class="btn btn-default btn-lg" type = "submit">Book</button></td>';
         echo '</tr>';
+        echo '</form>';
     }
     ?>
  </tbody>
