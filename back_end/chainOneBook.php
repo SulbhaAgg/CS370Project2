@@ -15,7 +15,7 @@ session_start();
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
     session_start();
     
-    
+    $id = mysqli_real_escape_string($con,$_POST["id"]);
     $location = mysqli_real_escape_string($con,$_POST["locI"]);
      $numLux = mysqli_real_escape_string($con,$_POST["numLux"]);
       $priceLux = mysqli_real_escape_string($con,$_POST["priceLux"]);

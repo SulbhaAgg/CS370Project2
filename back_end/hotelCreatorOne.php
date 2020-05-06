@@ -21,7 +21,7 @@ session_start();
     $numStan = mysqli_real_escape_string($con,$_POST["numStan"]);
 	$priceLux = mysqli_real_escape_string($con,$_POST["priceLux"]);
     $priceStan = mysqli_real_escape_string($con,$_POST["priceStan"]);
-    echo $hotelLocationI . " " . $hotelLocationJ . " " . $numLux . " " . $numStan ." " . $priceLux . " " . $priceStan;
+   // echo $hotelLocationI . " " . $hotelLocationJ . " " . $numLux . " " . $numStan ." " . $priceLux . " " . $priceStan;
 	//check if hotel exists in that I location
 	$hotelIcheckquery = "SELECT `hotelLocationI` FROM `hotel` WHERE hotelLocationI = '" . $hotelLocationI . "'";
 	$hotelcheckI = mysqli_query($con, $hotelIcheckquery)or die("1");

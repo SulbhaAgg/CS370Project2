@@ -49,8 +49,8 @@ echo "" . $price ."  .....         ";
 
   if($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION["loggedin"] == true && isset($username) && isset($hotelChain) && isset($location) && isset($roomType) && isset($currentDate) && isset($fromDate) && isset($toDate) && isset($price) ){
 	$insertresquery = "INSERT INTO `bast8620`.`reservations`
-(`id`,`username`,`hotelChain`,`hotelLocation`,`roomType`,`dateBooked`,`fromDate`,`toDate`,`price`)
-VALUES (NULL, '$username', '$hotelChain', '$location', '$roomType','$currentDate', '$fromDate','$toDate', '$price')";
+(`id`,`username`,`hotelChain`,`hotelLocation`,`roomType`,`dateBooked`,`fromDate`,`toDate`,`price`,`amtRoom`)
+VALUES (NULL, '$username', '$hotelChain', '$location', '$roomType','$currentDate', '$fromDate','$toDate', '$price','$amtRoom')";
 
 if($roomType =="Luxury"){//updates the inventory of luxury rooms
       
@@ -67,7 +67,7 @@ mysqli_query($con, $insertresquery) or die("4: Insert reservation query failed")
       // unset( $_SESSION["ErrorTConfirm"]);
 
       // $_SESSION["ErrorCOBook"] = "Success";
-    header("Location: chainOneBook.php");
+    header("Location: myReservations.php");
     exit;
     }
     else{

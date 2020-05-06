@@ -200,9 +200,9 @@ if($_SESSION["admin2"] == "yes"){
     </div>
      </br>
         <?php
-        if(isset($_SESSION["ErrorCTBook"])){ // checks if there is an error message set
-        echo '<p class = "statusMessage">' .$_SESSION["ErrorCTBook"].'</p>'; // Outputs error message to user
-        unset($_SESSION["ErrorCTBook"]);
+        if(isset($_SESSION["ErrorCTConfirm"])){ // checks if there is an error message set
+        echo '<p class = "statusMessage">' .$_SESSION["ErrorCTConfirm"].'</p>'; // Outputs error message to user
+        unset($_SESSION["ErrorCTConfirm"]);
     }
         ?>
     </form>

@@ -47,9 +47,9 @@ session_start();
 
 
   if($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION["loggedin"] == true && isset($username) && isset($hotelChain) && isset($location) && isset($roomType) && isset($currentDate) && isset($fromDate) && isset($toDate) && isset($price) ){
-	$insertresquery = "INSERT INTO `bast8620`.`reservations`
-(`id`,`username`,`hotelChain`,`hotelLocation`,`roomType`,`dateBooked`,`fromDate`,`toDate`,`price`)
-VALUES (NULL, '$username', '$hotelChain', '$location', '$roomType','$currentDate', '$fromDate','$toDate', '$price')";
+$insertresquery = "INSERT INTO `bast8620`.`reservations`
+(`id`,`username`,`hotelChain`,`hotelLocation`,`roomType`,`dateBooked`,`fromDate`,`toDate`,`price`,`amtRoom`)
+VALUES (NULL, '$username', '$hotelChain', '$location', '$roomType','$currentDate', '$fromDate','$toDate', '$price','$amtRoom')";
 
 if($roomType =="Luxury"){//updates the inventory of luxury rooms
       
@@ -63,12 +63,12 @@ if($roomType =="Luxury"){//updates the inventory of luxury rooms
 mysqli_query($con, $insertresquery) or die("4: Insert reservation query failed"); //error code 4  insertquery failed
         echo "success";
        unset( $_SESSION["ErrorTConfirm"]);
-       $_SESSION["ErrorCTBook"] = "Success";
-    header("Location: chainTwoBook.php");
+       $_SESSION["ErrorCTConfirm"] = "Success";
+    header("Location: myReservations.php");
     exit;
     }
     else{
-      $_SESSION["ErrorCTBook"] = "Please Log in before attempting to make Reservation. Thank You.";
+      $_SESSION["ErrorCTConfirm"] = "Please Log in before attempting to make Reservation. Thank You.";
       header("Location: chainTwoBook.php");
     }
     

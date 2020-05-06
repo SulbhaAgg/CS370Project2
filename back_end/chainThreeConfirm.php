@@ -46,9 +46,9 @@ session_start();
 
 
   if($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION["loggedin"] == true && isset($username) && isset($hotelChain) && isset($location) && isset($roomType) && isset($currentDate) && isset($fromDate) && isset($toDate) && isset($price) ){
-	$insertresquery = "INSERT INTO `bast8620`.`reservations`
-(`id`,`username`,`hotelChain`,`hotelLocation`,`roomType`,`dateBooked`,`fromDate`,`toDate`,`price`)
-VALUES (NULL, '$username', '$hotelChain', '$location', '$roomType','$currentDate', '$fromDate','$toDate', '$price')";
+$insertresquery = "INSERT INTO `bast8620`.`reservations`
+(`id`,`username`,`hotelChain`,`hotelLocation`,`roomType`,`dateBooked`,`fromDate`,`toDate`,`price`,`amtRoom`)
+VALUES (NULL, '$username', '$hotelChain', '$location', '$roomType','$currentDate', '$fromDate','$toDate', '$price','$amtRoom')";
 
 if($roomType =="Luxury"){//updates the inventory of luxury rooms
       
@@ -59,13 +59,13 @@ if($roomType =="Luxury"){//updates the inventory of luxury rooms
        $updatequery = "UPDATE `hotel` SET numStandard = '$numStan' WHERE hotelLocationI = '$locationI'  AND  hotelLocationJ = '$locationJ'";
        mysqli_query($con, $updatequery) or die("Standard rooms not updated");
      }
-     
+
 mysqli_query($con, $insertresquery) or die("4: Insert reservation query failed"); //error code 4  insertquery failed
         echo "success";
        unset( $_SESSION["ErrorTConfirm"]);
 
        $_SESSION["ErrorCBook"] = "Success";
-    header("Location: chainThreeBook.php");
+   header("Location: myReservations.php");
     exit;
     }
     else{

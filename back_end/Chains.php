@@ -52,7 +52,7 @@ session_start();
 
 <?php 
 if($_SESSION['loggedin'] == true ){
-  echo '<li><a href="landing.php">Your Reservations</a></li>';
+  echo '<li><a href="myReservations.php">Your Reservations</a></li>';
 }
 ?>
       </ul>
