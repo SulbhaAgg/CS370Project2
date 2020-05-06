@@ -32,6 +32,37 @@ session_start();
       $locationJ = substr($location, strpos($location, ",") + 1);
       $price;
      // echo "". $username . $roomType . $priceStan . $numStan . $priceLux . $numLux . $location . $amtRoom .  $currentDate . $fromDate  . $toDate .  "  .......     ";
+
+      
+if($roomType == "Luxury" && $numLux < $amtRoom){ 
+          echo $_SESSION["dumbError"] = "Amount of Luxury Rooms Requested exceeds amount of rooms available"; 
+          
+          header("Location: chainOneBook.php");
+          exit();
+      }
+      if($currentDate > $fromDate){
+        echo $_SESSION["dumbError"] = "Cannot Check in Before Current Date";
+        
+        header("Location: chainOneBook.php");
+          exit();
+      }
+      if($fromDate >= $toDate){
+          echo $_SESSION["dumbError"] = "Cannot Check in before Check Out Date/on Check Out Date";
+          
+          header("Location: chainOneBook.php");
+          exit();
+      }
+      if($roomType == "Standard" && $numStan < $amtRoom){
+          echo $_SESSION["dumbError"] = "Amount of Standard Rooms Requested exceeds amount of rooms available";
+          
+         header("Location: chainOneBook.php");
+         exit();
+      }
+      if($roomType == "Luxury"){
+        $price = $priceLux * $amtRoom;
+      }else{
+        $price = $priceStan * $amtRoom;
+      }
       if($roomType == "Luxury"){
         $price = $priceLux * $amtRoom;
       }else{

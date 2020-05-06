@@ -195,15 +195,16 @@ if($_SESSION["admin1"] == "yes"){
         <br>
          
     </div>
+    <?php
+        if(isset($_SESSION["dumbError"])){ // checks if there is an error message set
+        echo '<p class = "statusMessage">' .$_SESSION["dumbError"].'</p>'; // Outputs error message to user
+        unset($_SESSION["dumbError"]);
+    }
+        ?>
 </div>
     </div>
      </br>
-        <?php
-        if(isset($_SESSION["ErrorCThBook"])){ // checks if there is an error message set
-        echo '<p class = "statusMessage">' .$_SESSION["ErrorThCBook"].'</p>'; // Outputs error message to user
-        unset($_SESSION["ErrorCThBook"]);
-    }
-        ?>
+        
     </form>
 </div>
 

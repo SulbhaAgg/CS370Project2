@@ -32,6 +32,32 @@ session_start();
       $locationJ = substr($location, strpos($location, ",") + 1);
       $price;
      // echo "". $username . $roomType . $priceStan . $numStan . $priceLux . $numLux . $location . $amtRoom .  $currentDate . $fromDate  . $toDate .  "  .......     ";
+      
+
+    if($roomType == "Luxury" && $numLux < $amtRoom){ 
+          echo $_SESSION["dumbError"] = "Amount of Luxury Rooms Requested exceeds amount of rooms available"; 
+          
+          header("Location: chainThreeBook.php");
+          exit();
+      }
+      if($currentDate > $fromDate){
+        echo $_SESSION["dumbError"] = "Cannot Check in Before Current Date";
+        
+        header("Location: chainThreeBook.php");
+          exit();
+      }
+      if($fromDate >= $toDate){
+          echo $_SESSION["dumbError"] = "Cannot Check in before Check Out Date/on Check Out Date";
+          
+          header("Location: chainThreeBook.php");
+          exit();
+      }
+      if($roomType == "Standard" && $numStan < $amtRoom){
+          echo $_SESSION["dumbError"] = "Amount of Standard Rooms Requested exceeds amount of rooms available";
+          
+         header("Location: chainThreeBook.php");
+         exit();
+      }
       if($roomType == "Luxury"){
         $price = $priceLux * $amtRoom;
       }else{
@@ -45,7 +71,6 @@ echo "" . $price ."  .....         ";
       $numStan = $numStan - $amtRoom;
        
      }
-
 
   if($_SERVER['REQUEST_METHOD'] == 'POST' && $_SESSION["loggedin"] == true && isset($username) && isset($hotelChain) && isset($location) && isset($roomType) && isset($currentDate) && isset($fromDate) && isset($toDate) && isset($price) ){
   $insertresquery = "INSERT INTO `bast8620`.`reservations`
