@@ -37,25 +37,25 @@ session_start();
     if($roomType == "Luxury" && $numLux < $amtRoom){ 
           echo $_SESSION["dumbError"] = "Amount of Luxury Rooms Requested exceeds amount of rooms available"; 
           
-          header("Location: chainThreeBook.php");
+          header("Location: chainThreeHotels.php");
           exit();
       }
       if($currentDate > $fromDate){
         echo $_SESSION["dumbError"] = "Cannot Check in Before Current Date";
         
-        header("Location: chainThreeBook.php");
+        header("Location: chainThreeHotels.php");
           exit();
       }
       if($fromDate >= $toDate){
           echo $_SESSION["dumbError"] = "Cannot Check in before Check Out Date/on Check Out Date";
           
-          header("Location: chainThreeBook.php");
+          header("Location: chainThreeHotels.php");
           exit();
       }
       if($roomType == "Standard" && $numStan < $amtRoom){
           echo $_SESSION["dumbError"] = "Amount of Standard Rooms Requested exceeds amount of rooms available";
           
-         header("Location: chainThreeBook.php");
+         header("Location: chainThreeHotels.php");
          exit();
       }
       if($roomType == "Luxury"){
@@ -97,7 +97,7 @@ mysqli_query($con, $insertresquery) or die("4: Insert reservation query failed")
     }
     else{
      // $_SESSION["ErrorCOConfirm"] = " " . $numStan . " " . $numLux . " " . $locationI . " " . $locationJ;
-      header("Location: chainThreeBook.php");
+      header("Location: hotelLog.php");
     }
     
 }

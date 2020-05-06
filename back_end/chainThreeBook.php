@@ -154,6 +154,7 @@ if($_SESSION["admin1"] == "yes"){
         Price Standard:<br>
          <?php
         echo '<input type="text" id="priceStan" name="priceStan" class="form-control" placeholder=" '. $priceStan .'" required minlength="1" maxlength="5" value = " '.$priceStan .'" readonly>';
+        
         ?>
            </div>
    </div>

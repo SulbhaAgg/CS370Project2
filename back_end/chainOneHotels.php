@@ -75,6 +75,12 @@ if( $_SESSION['loggedin'] == true && strcmp($_SESSION["admin1"],'yes') ==0){
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<?php
+        if(isset($_SESSION["dumbError"])){ // checks if there is an error message set
+        echo '<h3 class = "statusMessage">' .$_SESSION["dumbError"].'</h3>'; // Outputs error message to user
+        unset($_SESSION["dumbError"]);
+    }
+        ?>
 <table class="table table-dark">
   <thead>
     <tr>
