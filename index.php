@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="css/search.css">
 
 	<link rel="stylesheet" href="css/aos.css">
 
@@ -31,26 +30,26 @@
   <body>
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
+	    <div class=" nav">
 	      <a class="navbar-brand" href="index.php">likeHome</a>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 						<div class="searchbar">
-							<input type="text" name="search" placeholder="Search..">
+							<input type="text" name="search" placeholder="Search.." style="width:150px;">
 						</div>
 					</li>
 				<li class="nav-item" >
-					<div class="mb-3 mr-4" style="margin-left:8%; width: 30%;" >
+					<div class="mb-3 mr-4" style="margin-left:8%; width: 120px;" >
 						<input type="text" class="form-control checkin_date" placeholder="date">
 					</div>
 				</li>
-				<li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
-				<li class="nav-item"><a href="map.php" class="nav-link">Map</a></li>
-	        	<li class="nav-item"><a href="room.php" class="nav-link">Rooms</a></li>
-				<li class="nav-item"><a href="Login.php" class="nav-link">Log&nbsp;In</a></li>
-				<li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
+					<li class="nav-item active margin" ><a href="index.php" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="chains.php" class="nav-link">chains</a></li>
+					<li class="nav-item"><a href="map.php" class="nav-link">Map</a></li>
+					<li class="nav-item"><a href="Login.php" class="nav-link">Log&nbsp;In</a></li>
+					<li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -84,113 +83,6 @@
 		      </div>
 		    </section>
 
-    	</div>
-    </section>
-
-    <section class="ftco-booking">
-    </section>
-
-		<section class="ftco-section ftco-room bg-light">
-			<div class="container">
-				<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-          	<span class="subheading">Hotels</span>
-            <h2 class="mb-4">Click at the bottom to see more details</h2>
-          </div>
-        </div>
-        <div class="carousel-rooms owl-carousel ftco-animate">
-        	<div class="item">
-        		<div class="room-wrap">
-        			<a href="room.php" class="img" style="background-image: url(images/Hotel1.jpg);"></a>
-        			<div class="text pt-4 pl-lg-5">
-        				<h2><a href="room.php">Comfort Hotel</a></h2>
-        				<p class="rate">
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star-half-full"></span>
-        				</p>
-        				<p><a href="#" class="btn-customize">Details</a></p>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="item">
-        		<div class="room-wrap">
-        			<a href="room.php" class="img" style="background-image: url(images/Hotel2.jpg);"></a>
-        			<div class="text pt-4 pl-lg-5">
-        				<h2><a href="room.php">Courtyard</a></h2>
-        				<p class="rate">
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star-half-full"></span>
-        				</p>
-        				<p><a href="#" class="btn-customize">Details</a></p>
-        			</div>
-        		</div>
-        	</div>
-        	<div class="item">
-        		<div class="room-wrap">
-        			<a href="room.php" class="img" style="background-image: url(images/Hotel3.jpg);"></a>
-        			<div class="text pt-4 pl-lg-5">
-        				<h2><a href="room.php">Crowne Plaza</a></h2>
-        				<p class="rate">
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star"></span>
-        					<span class="icon-star-half-full"></span>
-        				</p>
-        				<p><a href="#" class="btn-customize">Details</a></p>
-        			</div>
-        		</div>
-        	</div>
-        </div>
-			</div>
-		</section>
-
-		<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
-    	<div class="container">
-    		<div class="row d-md-flex justify-content-center align-items-center">
-    			<div class="col-lg-8">
-    				<div class="row d-md-flex align-items-center">
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="3">0</strong>
-		                <span>Hotel</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="1000">0</strong>
-		                <span>Happy Guests</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="100">0</strong>
-		                <span>Rooms</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="9">0</strong>
-		                <span>Destinations</span>
-		              </div>
-		            </div>
-		          </div>
-	          </div>
-          </div>
-        </div>
     	</div>
     </section>
 
