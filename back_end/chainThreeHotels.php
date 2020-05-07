@@ -42,8 +42,8 @@ session_start();
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
 <li><a href="landing.php">Home</a></li>
-<li><a href="chainThreeHotels.php">Hotels</a></li>
-<li class="active"><a href="Chains.php">Chains</a></li>
+<li class="active"><a href="chainThreeHotels.php">Hotels</a></li>
+<li ><a href="Chains.php">Chains</a></li>
 <li><a href="landing.php">Map</a></li>
 
 <?php 
