@@ -79,7 +79,7 @@
 
 	<section class="ftco-section ftco-room">
 		<div class="container">
-			<div class="row">
+			<div class="row justify-content-md-center">
 				<div class="col-md-4">
 					<div class="room-wrap ftco-animate">
 						<a href="register.html" class="img" style="background-image: url(images/chain1hotel1.jpg);"></a>

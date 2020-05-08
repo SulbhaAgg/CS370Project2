@@ -50,9 +50,9 @@
 					<li class="nav-item active margin" ><a href="index.php" class="nav-link" style="font-size: larger;"><b>Home</b></a></li>
 					<li class="nav-item"><a href="chains.php" class="nav-link" style="font-size: larger;" ><b>chains</b></a></li>
 					<li class="nav-item"><a href="map.php" class="nav-link" style="font-size: larger;"><b>Map</b></a></li>
-					<li class="nav-item"><a href="Login.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
-          <li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;" style="font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
-
+					<li class="nav-item"><a href="register and login/index.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
+					<li class="nav-item"><a href="register and login/register.php" class="nav-link" style = "font-size: larger;" style="font-size: larger;">
+					  <b>Sign&nbsp;Up</b></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -78,7 +78,7 @@
 
 	<section class="ftco-section ftco-room">
 		<div class="container">
-			<div class="row">
+			<div class="row justify-content-md-center">
 				<div class="col-md-4">
 					<div class="room-wrap ftco-animate">
 						<a href="register.html" class="img" style="background-image: url(images/hotel1.jpg);"></a>
