@@ -22,12 +22,23 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<style>
+		#header h1
+		{
+   	 		margin:0px;
+		}
+		body{
+    margin:0;
+}
+	</style>
 
 </head>
 
-<body>
-	
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<body style = "background: #fb929e42;">
+	  
+	<div id="booking" class="section" >
+
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" >
 	    <div class=" nav">
 	      <a class="navbar-brand" href="index.php">likeHome</a>
 
@@ -43,17 +54,18 @@
 						<input type="text" class="form-control checkin_date" placeholder="date">
 					</div>
 				</li>
-					<li class="nav-item active margin" ><a href="index.php" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="chains.php" class="nav-link">chains</a></li>
-					<li class="nav-item"><a href="map.php" class="nav-link">Map</a></li>
-					<li class="nav-item"><a href="Login.php" class="nav-link">Log&nbsp;In</a></li>
-					<li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
+				
+					<li class="nav-item active margin" ><a href="index.php" class="nav-link" style="font-size: larger;"><b>Home</b></a></li>
+					<li class="nav-item"><a href="chains.php" class="nav-link" style="font-size: larger;" ><b>chains</b></a></li>
+					<li class="nav-item"><a href="map.php" class="nav-link" style="font-size: larger;"><b>Map</b></a></li>
+					<li class="nav-item"><a href="Login.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
+          			<li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;" style="font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
+				
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
-	  
-	<div id="booking" class="section" >
+
 		<div class="section-center">
 			<div class="container">
 				<div class="row">

@@ -45,11 +45,12 @@
 						<input type="text" class="form-control checkin_date" placeholder="date">
 					</div>
 				</li>
-					<li class="nav-item active margin" ><a href="index.php" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="chains.php" class="nav-link">chains</a></li>
-					<li class="nav-item"><a href="map.php" class="nav-link">Map</a></li>
-					<li class="nav-item"><a href="Login.php" class="nav-link">Log&nbsp;In</a></li>
-					<li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
+					<li class="nav-item active margin" ><a href="index.php" class="nav-link" style="font-size: larger;"><b>Home</b></a></li>
+					<li class="nav-item"><a href="chains.php" class="nav-link" style="font-size: larger;" ><b>chains</b></a></li>
+					<li class="nav-item"><a href="map.php" class="nav-link" style="font-size: larger;"><b>Map</b></a></li>
+					<li class="nav-item"><a href="Login.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
+          <li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;" style="font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
+
 	        </ul>
 	      </div>
 	    </div>
