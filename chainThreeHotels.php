@@ -50,8 +50,9 @@
 					<li class="nav-item active margin" ><a href="index.php" class="nav-link" style="font-size: larger;"><b>Home</b></a></li>
 					<li class="nav-item"><a href="chains.php" class="nav-link" style="font-size: larger;" ><b>chains</b></a></li>
 					<li class="nav-item"><a href="map.php" class="nav-link" style="font-size: larger;"><b>Map</b></a></li>
-					<li class="nav-item"><a href="Login.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
-          <li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;" style="font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
+					<li class="nav-item"><a href="register and login/index.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
+					<li class="nav-item"><a href="register and login/register.php" class="nav-link" style = "font-size: larger;" style="font-size: larger;">
+					  <b>Sign&nbsp;Up</b></a></li>
 
 	        </ul>
 	      </div>
@@ -60,15 +61,15 @@
     <!-- END nav -->
 
 	<section class="home-slider js-fullheight owl-carousel">
-		<div class="slider-item js-fullheight" style="background-image:url(images/bg_3.jpg);">
+		<div class="slider-item js-fullheight" style="background-image:url(images/Hotel3.jpg);">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row slider-text justify-content-center align-items-center">
 
 					<div class="col-md-7 col-sm-12 text-center ftco-animate">
-						<h1 class="mb-3 mt-2 bread">Chains</h1>
-						<p class="breadcrumbs"><span class="mr-2"><a href="index.php">Home</a></span>
-							<span>Chains</span></p>
+						<h1 class="mb-3 mt-2 bread">Westin</h1>
+						<p class="breadcrumbs" style = "color: #0c0c0c ;"><span class="mr-2"><a href="chains.php" style = "color: #0c0c0c ;"><b>chains</b></a></span>
+							<span><b>Chain Three</b></span></p>
 					</div>
 
 				</div>
@@ -78,12 +79,12 @@
 
 	<section class="ftco-section ftco-room">
 		<div class="container">
-			<div class="row">
+			<div class="row justify-content-md-center">
 				<div class="col-md-4">
 					<div class="room-wrap ftco-animate">
-						<a href="register.html" class="img" style="background-image: url(images/hotel1.jpg);"></a>
+						<a href="register.html" class="img" style="background-image: url(images/chain3hotel1.jpg);"></a>
 						<div class="text pt-4 pl-lg-5">
-							<h2><a href="chainOneHotels.php">JW Marriot</a></h2>
+							<h2><a href="register.html">Location: 7,9</a></h2>
 							<p class="rate">
 								<span class="icon-star"></span>
 								<span class="icon-star"></span>
@@ -92,44 +93,14 @@
 								<span class="icon-star-half-full"></span>
 							</p>
 							<p class="d-flex price-details align-items-center pt-3">
-							</p>
-							<p><a href="chainOneHotels.php" class="btn-customize">View Hotels</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="room-wrap ftco-animate">
-						<a href="register.html" class="img" style="background-image: url(images/Hotel2.jpg);"></a>
-						<div class="text pt-4 pl-lg-5">
-							<h2><a href="chainTwoHotels.php">Courtyard</a></h2>
-							<p class="rate">
-								<span class="icon-star"></span>
-								<span class="icon-star"></span>
-								<span class="icon-star"></span>
-								<span class="icon-star"></span>
-								<span class="icon-star-o"></span>
+								<span>Luxury Rooms: 12</span>
+								<span class="price">&nbsp;$350</span>
 							</p>
 							<p class="d-flex price-details align-items-center pt-3">
+								<span>Standard Rooms: 22</span>
+								<span class="price">&nbsp;$175</span>
 							</p>
-							<p><a href="chainTwoHotels.php" class="btn-customize">View Hotels</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="room-wrap ftco-animate">
-						<a href="register.html" class="img" style="background-image: url(images/Hotel3.jpg);"></a>
-						<div class="text pt-4 pl-lg-5">
-							<h2><a href="chainThreeHotels.php">Westin</a></h2>
-							<p class="rate">
-								<span class="icon-star"></span>
-								<span class="icon-star"></span>
-								<span class="icon-star"></span>
-								<span class="icon-star"></span>
-								<span class="icon-star"></span>
-							</p>
-							<p class="d-flex price-details align-items-center pt-3">
-							</p>
-							<p><a href="chainThreeHotels.php" class="btn-customize">View Hotels</a></p>
+							<p><a href="register and login/index.php" class="btn-customize">Reserve</a></p>
 						</div>
 					</div>
 				</div>

@@ -48,8 +48,9 @@
 					<li class="nav-item active margin" ><a href="index.php" class="nav-link" style="font-size: larger;"><b>Home</b></a></li>
 					<li class="nav-item"><a href="chains.php" class="nav-link" style="font-size: larger;" ><b>chains</b></a></li>
 					<li class="nav-item"><a href="map.php" class="nav-link" style="font-size: larger;"><b>Map</b></a></li>
-					<li class="nav-item"><a href="Login.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
-          <li class="nav-item"><a href="register.php" class="nav-link" style = "font-size: larger;" style="font-size: larger;"><b>Sign&nbsp;Up</b></a></li>
+          <li class="nav-item"><a href="register and login/index.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
+					<li class="nav-item"><a href="register and login/register.php" class="nav-link" style = "font-size: larger;" style="font-size: larger;">
+					  <b>Sign&nbsp;Up</b></a></li>
 
 	        </ul>
 	      </div>
@@ -62,7 +63,7 @@
     		<div class="text">
     			<h2>Welcome to likeHome</h2>
     			<h1 class="mb-5">Perfect Places for you to Stay</h1>
-    			<p><a href="#" class="btn-custom py-3 pr-2">Start here</a></p>
+    			<p><a href="chains.php" class="btn-custom py-3 pr-2">Start here</a></p>
     		</div>
     	</div>
     	<div class="third js-fullheight">
@@ -222,7 +223,8 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">About likeHome</h2>
-              <p>It's not about where you are staying. It's about where you're going. likeHome, Travel Brilliantly</p>
+              <p style="color:white;font-size:20px;font-weight:bold;">It's not about where you are staying. 
+						It's about where you're going. likeHome, Travel Brilliantly</p>
             </div>
           </div>
           
