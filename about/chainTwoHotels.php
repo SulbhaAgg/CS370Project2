@@ -33,7 +33,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class=" nav">
-	      <a class="navbar-brand" href="index.php">likeHome</a>
+	      <a class="navbar-brand" href="about.php">likeHome</a>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
@@ -47,7 +47,7 @@
 						<input type="text" class="form-control checkin_date" placeholder="date">
 					</div>
 				</li>
-					<li class="nav-item active margin" ><a href="index.php" class="nav-link" style="font-size: larger;"><b>Home</b></a></li>
+					<li class="nav-item active margin" ><a href="about.php" class="nav-link" style="font-size: larger;"><b>Home</b></a></li>
 					<li class="nav-item"><a href="chains.php" class="nav-link" style="font-size: larger;" ><b>chains</b></a></li>
 					<li class="nav-item"><a href="map.php" class="nav-link" style="font-size: larger;"><b>Map</b></a></li>
 					<li class="nav-item"><a href="register and login/index.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>
