@@ -46,7 +46,7 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <h1 id = "title">Hover over the red marked boxes to see which hotel is located there</h1>
+    <h1 id = "title"> Hover over the red marked boxes to see which hotel is located there </h1>
     <table id = "Grid" class = "Grid"></table>
     <script type = "text/javascript">
         window.onload = function createGrid() { 
@@ -183,11 +183,20 @@
         }
 
         #title{
+            /* 
+            
+            
+            
+             */
+            font-size: 40px;
+            /* margin: 0 0 1.5em;  */
+            background-color: #eff0f1; 
+            display: inline-block;
             text-align: center;
             margin-top: 80px;
-            font-size: 30px;
+            margin-left: 100px;
+            /* margin-right: auto; */
             color: black;
-            background-color: while;
         }
                     
 
