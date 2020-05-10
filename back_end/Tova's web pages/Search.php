@@ -50,35 +50,41 @@
         <h1>Hotel Search</h1>   
         <form action = "" method ="GET" name = "" class="navbar-form navbar-left">
             <div class="form-group">
-                <input type="text" name="k" class="form-control" placeholder="Search">
+                <input type="text" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : '' ?>" class="form-control" placeholder="Search"/>
+
+                <!-- <input type="text" name="k" > -->
             </div>
             <button type="submit" name="" value="Search" class="btn btn-default">Submit</button>
       
-            <label for="Sort">Sort results by  </label>
-            <select name="Sort" id = "Sort">
-                <option value="hotelName">hotel name</option>
-                <option value="increasing">price increasing</option>
-                <option value="decreasing">price decreasing</option>
+            <label for="sort">Sort results by  </label>
+
+            <select name="sort" id = "sort">
+                <option <?php if ($_GET['sort'] == 'none') { ?>selected="true" <?php }; ?>value="none">select</option>
+                <option <?php if ($_GET['sort'] == 'hotelName') { ?>selected="true" <?php }; ?>value="hotelName">hotel name</option>
+                <option <?php if ($_GET['sort'] == 'increasing') { ?>selected="true" <?php }; ?>value="increasing">price increasing</option>
+                <option <?php if ($_GET['sort'] == 'decreasing') { ?>selected="true" <?php }; ?>value="decreasing">price decreasing</option>
             </select>
             <input type="submit" name="submit" value="Enter" />
         </form>
+     
     </div>    
     <?php
-        $hasSearched = false;
-        if(isset($_GET['submit']) && $hasSearched){
-            $selected_val = $_GET['Sort'];  // Storing Selected Value In Variable
-            echo "You have selected :" .$selected_val;  // Displaying Selected Value
-            
-        }
-        
-  
-       
-
 
         include("permissions.php");
         $con = mysqli_connect($host, $user, $password, $dbname);// or die ('Could not connect to the database server' . mysqli_connect_error());
 
-        if (isset($_GET['k']) && $_GET['k'] != ''){
+        if ((isset($_GET['k']) && $_GET['k'] != '') || (isset($_GET['submit']) && isset($_GET['k']) && $_GET['k'] != '')){
+            
+            $selected_val = $_GET['sort'];  // Storing Selected Value In Variable
+            echo "You have selected :" .$selected_val;  // Displaying Selected Value
+
+            if($selected_val == "hotelName") $orderBy = "ORDER BY hotelChain ASC;";
+            else if($selected_val == "increasing") $orderBy = "ORDER BY pricePerNightStandard ASC;";
+            else if($selected_val == "decreasing") $orderBy = "ORDER BY pricePerNightStandard DESC;";
+            else{
+                $orderBy = ";";
+            }
+
 
             
 
@@ -93,7 +99,7 @@
                 $query_string .= "keywords LIKE '%" . $word . "%'  OR";
                 $display_words .= $word . " "; 
             }
-            $query_string = substr($query_string, 0, strlen($query_string)-3) . ";";
+            $query_string = substr($query_string, 0, strlen($query_string)-3) . $orderBy;
 
             $query = mysqli_query($con, $query_string);
             $result_count = mysqli_num_rows($query);
@@ -129,67 +135,8 @@
         else{
             echo '';
         }
-        $hasSearched = true;
     ?>
 
-    <!-- <table id = "Grid" class = "Grid"></table>
-    <script type = "text/javascript">
-        window.onload = function createTable() { 
-      
-        var reservations  = 
-
-        <?php
-        include("permissions.php");
-        
-        $con = new mysqli($host, $user, $password, $dbname) or die ('Could not connect to the database server' . mysqli_connect_error());
-
-            $currentDate = "2020-12-07";
-            $chain = "Marriot";
-            $reservationsquery = "SELECT userId, hotelChain, hotelLocation, roomType, price, dateArrival, dateDeparture FROM reservations WHERE hotelChain = '" . $chain . "' AND DATE(dateArrival) <= '" . $currentDate ."' AND DATE(dateDeparture) >= '" . $currentDate . "';";
-            $reservations = mysqli_query($con, $reservationsquery) or die ("Could not access coordinates of hotels");
-            $json_array = array();
-            echo "'";
-            if(mysqli_num_rows($reservations) > 0){
-                while($row = mysqli_fetch_assoc($reservations)){
-                    echo $row["userId"] . "\t" . $row["hotelChain"] . "\t" . $row["hotelLocation"] . "\t" . $row["roomType"] . "\t" . $row["price"] . "\t" . $row["dateArrival"] . "\t" . $row["dateDeparture"] . "\t";
-                    $json_array[] = $row;
-                }
-            }
-            echo "';";
-            //echo json_encode($json_array);
-            $con->close();
-        ?>
-        var reservationsAry = reservations.split("\t");
-        
-
-
-
-            //console.log('The Script will load now.'); 
-            var result = "<thead> <tr> <th> Name </th> <th> Hotel Chain </th> <th> Hotel Location </th> <th> Room Type </th> <th> Price </th> <th> Date of arrival </th> <th> Date of Departure </th></tr></thead>";
-            var numRows = reservationsAry.length/7;
-            var counter = 0;
-            var counter2 = 1
-            for (var i=1; i<=numRows; i++){
-                result += "<tr> ";
-                for (var j=1; j<=7; j++){
-                    result += "<td id = '" + i + "," + j + "'>";
-                    if (counter2 % 7 == 6 || counter2 % 7 == 0){
-                        reservationsAry[counter] = reservationsAry[counter].split(" ")[0];
-                    } 
-                    result += reservationsAry[counter];
-                    counter2++;
-                    counter++;
-                    result += "</td>";
-                }
-                result += "</tr>";
-            }
-            document.getElementById("Grid").innerHTML = result;
-        }
-
-            
-</script> -->
-
-    
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.js"
@@ -207,30 +154,6 @@
             padding-left: 60px;
         } 
 
-        /* .Grid tr{
-            border: 2px solid black;
-        } */
-
-        /* .Grid{
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 1.9em;
-            color: black;
-            min-width: 1400px;
-            
-        }
-        .Grid th,
-        .Grid td{
-            padding: 12px, 15px;
-        }
-        .Grid thead tr{
-
-            font-size: 1em;
-            background-color: pink;
-            font-weight: bold;
-            height: 60px;
-        } */ 
 
         #description{
             margin-left: 520px;
