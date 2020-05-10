@@ -27,16 +27,17 @@
                     <li><a href="landing.php">Home</a></li>
                     <li><a href="About.html">About</a></li>
                     <li><a href="Chains.php">Chains</a></li>
-                    <li class = "active"><a href="Map.php">Map</a></li>
+                    <li id = "active"><a href="Map.php">Map</a></li>
                     <li><a href="Reservations.php">View Reservations</a></li>
+                    <li ><a href="Search.php">Search for Hotel</a><li>
                     
                 </ul>
-                <form class="navbar-form navbar-left">
+                <!-- <form class="navbar-form navbar-left">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+                </form> -->
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="hotelSignUp.php">Sign Up</a></li>
                     <li><a href="hotelLog.php">Login</a></li>
@@ -133,6 +134,9 @@
             background-color: orange;
             height: 14px;
             width: 14px;
+        }
+        #active{
+	        background-color: #be617d;
         }
         
 

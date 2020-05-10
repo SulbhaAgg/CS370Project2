@@ -29,7 +29,7 @@
                     <li><a href="Chains.php">Chains</a></li>
                     <li><a href="Map.php">Map</a></li>
                     <li ><a href="Reservations.php">View Reservations</a></li>
-                    <li class = "active"><a href="Search.php">Search for Hotel</a><li>
+                    <li id = "active"><a href="Search.php">Search for Hotel</a><li>
                     
                 </ul>
                 <!-- <form class="navbar-form navbar-left">
@@ -47,7 +47,7 @@
     </nav>
 
     <div class = "search">
-        <h1>Hotel Search</h1>   
+        <h1 id = "head">Hotel Search</h1>   
         <form action = "" method ="GET" name = "" class="navbar-form navbar-left">
             <div class="form-group">
                 <input type="text" name="k" value="<?php echo isset($_GET['k']) ? $_GET['k'] : '' ?>" class="form-control" placeholder="Search"/>
@@ -159,6 +159,10 @@
             margin-top: 0px;
         }
 
+        #head{
+            color: #40e4b3;
+        }
+
         .search{
             color: black;
             width: 70%;
@@ -181,6 +185,10 @@
         .results{
             width: 100%;
             background-color: rgba(220, 220, 220, 0.88);
+        }
+
+        #active{
+	        background-color: #be617d;
         }
         
 
