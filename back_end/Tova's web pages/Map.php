@@ -46,7 +46,7 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-
+    <h1 id = "title">Hover over the red marked boxes to see which hotel is located there</h1>
     <table id = "Grid" class = "Grid"></table>
     <script type = "text/javascript">
         window.onload = function createGrid() { 
@@ -57,6 +57,7 @@
         $con = new mysqli($host, $user, $password, $dbname) or die ('Could not connect to the database server' . mysqli_connect_error());
             $coordinatesquery = "SELECT hotelLocation FROM hotels;";
             $coordinates = mysqli_query($con, $coordinatesquery) or die ("Could not access coordinates of hotels");
+            
             $json_array = array();
             echo "'";
             if(mysqli_num_rows($coordinates) > 0){
@@ -69,7 +70,30 @@
             //echo json_encode($json_array);
             $con->close();
         ?>
+
+        var hotelNames =  
+        <?php
+        include("permissions.php");
+        $con = new mysqli($host, $user, $password, $dbname) or die ('Could not connect to the database server' . mysqli_connect_error());
+            $hotelNamesquery = "SELECT hotelChain FROM hotels;";
+            $hotelNames = mysqli_query($con, $hotelNamesquery) or die ("Could not access coordinates of hotels");
+            
+            $json_array = array();
+            echo "'";
+            if(mysqli_num_rows($hotelNames) > 0){
+                while($row = mysqli_fetch_assoc($hotelNames)){
+                    echo $row["hotelChain"] . "\t";
+                    $json_array[] = $row;
+                }
+            }
+            echo "';";
+            //echo json_encode($json_array);
+            $con->close();
+        ?>
+
+
         var coordinatesAry = coordinates.split("\t");
+        var hotelChainsAry = hotelNames.split("\t");
         //document.getElementById("demo").innerHTML = coordinatesAry[0];
 
 
@@ -83,7 +107,7 @@
                     for (var k=0; k<coordinatesAry.length; k++){
                         var temp = i + ", " + j;
                         if (temp == coordinatesAry[k]){
-                           result += " class = 'hotel'>";// <button id = 'button1' > </button> "; 
+                           result += " class = 'hotel'><span class='tooltiptext'>" + hotelChainsAry[k] + "<br>Location: " + coordinatesAry[k] +"</span>";// <button id = 'button1' > </button> "; 
                            break;
                         } 
                         else if (k == coordinatesAry.length-1) result += ">";
@@ -111,7 +135,7 @@
         .Grid{
             margin-left: auto;
             margin-right: auto;
-            margin-top: 52px;
+            margin-top: 12px;
             border: .2px solid black;
         }
         .Grid tr td{
@@ -120,7 +144,7 @@
             border: .2px solid black;
             height: 14.06px;
             width: 14.06px;
-            font-size: 4px;
+            /* font-size: 4px; */
         }
         .Grid tr td.hotel{
             background-color: red;
@@ -139,6 +163,33 @@
 	        background-color: #be617d;
         }
         
+
+        .hotel .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+        }
+
+        .hotel:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        #title{
+            text-align: center;
+            margin-top: 80px;
+            font-size: 30px;
+            color: black;
+            background-color: while;
+        }
+                    
 
 
     </style>
