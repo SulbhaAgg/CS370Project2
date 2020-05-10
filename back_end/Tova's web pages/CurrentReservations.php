@@ -28,7 +28,7 @@
                     <li><a href="About.html">About</a></li>
                     <li><a href="Chains.php">Chains</a></li>
                     <li><a href="Map.php">Map</a></li>
-                    <li class = "active"><a href="Reservations.php">View Reservations</a></li>
+                    <li id = "active"><a href="Reservations.php">View Reservations</a></li>
                     
                 </ul>
                 <form class="navbar-form navbar-left">
@@ -45,13 +45,15 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <table id = "Grid" class = "Grid"></table>
+    
+    <div class = "container-fluid inner"><table id = "Grid" class = "Grid"></table></div>
     <script type = "text/javascript">
         window.onload = function createTable() { 
       
         var reservations  = 
 
-        <?php
+        
+    <?php
         include("permissions.php");
         
         $con = new mysqli($host, $user, $password, $dbname) or die ('Could not connect to the database server' . mysqli_connect_error());
@@ -78,7 +80,8 @@
 
 
             //console.log('The Script will load now.'); 
-            var result = "<thead> <tr> <th> Name </th> <th> Hotel Chain </th> <th> Hotel Location </th> <th> Room Type </th> <th> Price </th> <th> Date of arrival </th> <th> Date of Departure </th></tr></thead>";
+            var result = "<thead> <tr class='tableizer-firstrow'> <th> Name </th> <th> Hotel Chain </th> <th> Hotel Location </th> <th> Room Type </th> <th> Price </th> <th> Date of arrival </th> <th> Date of Departure </th></tr></thead>";
+           // var result = "";
             var numRows = reservationsAry.length/7;
             var counter = 0;
             var counter2 = 1
@@ -88,7 +91,8 @@
                     result += "<td id = '" + i + "," + j + "'>";
                     if (counter2 % 7 == 6 || counter2 % 7 == 0){
                         reservationsAry[counter] = reservationsAry[counter].split(" ")[0];
-                    } 
+                    }
+                    else if (counter2%7 == 5) reservationsAry[counter] = "$" + reservationsAry[counter];
                     result += reservationsAry[counter];
                     counter2++;
                     counter++;
@@ -114,7 +118,7 @@
 </script>
 <style type = "text/css">
          
-        .Grid tr td{
+        /* .Grid tr td{
             background-color: white;
             height: 60px;
         } 
@@ -142,11 +146,10 @@
             background-color: pink;
             font-weight: bold;
             height: 60px;
-        }
-        
-
+        } */
 
     </style>
 
 
 </html>
+

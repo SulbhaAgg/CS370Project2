@@ -105,7 +105,7 @@
                 for (var j=1; j<=100; j++){
                     result += "<td id = '" + i + "," + j + "'" ;
                     for (var k=0; k<coordinatesAry.length; k++){
-                        var temp = i + ", " + j;
+                        var temp = i + "," + j;
                         if (temp == coordinatesAry[k]){
                            result += " class = 'hotel'><span class='tooltiptext'>" + hotelChainsAry[k] + "<br>Location: " + coordinatesAry[k] +"</span>";// <button id = 'button1' > </button> "; 
                            break;
