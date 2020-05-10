@@ -76,7 +76,6 @@
         if ((isset($_GET['k']) && $_GET['k'] != '') || (isset($_GET['submit']) && isset($_GET['k']) && $_GET['k'] != '')){
             
             $selected_val = $_GET['sort'];  // Storing Selected Value In Variable
-            echo "You have selected :" .$selected_val;  // Displaying Selected Value
 
             if($selected_val == "hotelName") $orderBy = "ORDER BY hotelChain ASC;";
             else if($selected_val == "increasing") $orderBy = "ORDER BY pricePerNightStandard ASC;";
