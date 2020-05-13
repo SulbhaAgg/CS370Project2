@@ -1,0 +1,120 @@
+<!--
+
+<?php
+  //php here to connect to the database
+  //make the user information consistent over different pages
+	session_start();
+
+	//connection to database
+	$con = mysqli_connect('mars.cs.qc.cuny.edu','','');
+
+	if(!$con)
+	{
+		echo 'Not Connected';
+	}
+	else{
+		
+	}
+
+    //select database
+	if(!mysqli_select_db($con,'')){
+		echo 'Not connected to DataBase';
+	}
+	else{
+		
+	}
+
+    //receive user input form
+    $username = $_POST['username'];
+	$password = $_POST['password'];
+
+	$check = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
+	$result = mysqli_query($con,$check) or die("Bad Connection");
+
+	//check the user is in the database, which means the user have been registered
+	if(mysqli_num_rows($result)>0)
+	{
+		//make username consistent
+		$_SESSION['username'] = "$username";
+		header("Location: game.php");
+	}
+	else
+	{
+		header("Location: loginFail.html");
+	}
+
+?>
+
+-->
+
+
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Adminstrator Page</title>
+		<style>
+			body{
+				margin:0px;
+				border: 0px;
+			}
+
+			#header{
+				width: 100%;
+				height: 120px;
+				background: black;
+				color: white;
+			}
+
+			#sidebar{
+				width: 300px;
+				height: 400px;
+				background: cyan;
+				float: left;
+			}
+
+			#data{
+				height: 700px;
+				background:pink;
+			}
+
+			#adminLogo{
+				background: white;
+				border-radius: 50px;
+
+			}
+
+			ul li{
+				padding: 20px;
+				border-bottom: : 2px solid grey;
+			}
+
+			ul li: hover{
+				background: cyan;
+				color:white;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="header">
+			<center><img src="admin_icon.png" alt="adminLogo" id="adminLogo" height="60px" width="60px"></center>
+			<br>
+			<p align="center">This is the Adminstrator page</p>
+		</div>
+
+		<div id="sidebar">
+			<ul>
+				<!--the customer reservation-->
+				<a href="customerReservation.html"><li>Customer Reservation</li></a>
+
+				<!--the customer checked in-->
+				<a href="customerChecked.html"><li>Customer Checked In</li></a>
+
+				<!--add new hotel-->
+				<a href="addNewHotel.html"><li>Add New Hotel</li></a>
+		</div>
+
+		<div id="data">
+		</div>
+	</body>
+</html>
