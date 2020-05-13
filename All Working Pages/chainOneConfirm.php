@@ -31,6 +31,8 @@ session_start();
       list($locationI) = explode(',', $location);
       $locationJ = substr($location, strpos($location, ",") + 1);
       $price;
+      $testTo = strtotime($toDate);
+      $testFrom = strtotime($fromDate);
     $diff = ($testTo - $testFrom);
       $days = floor($diff / (60*60*24));
      // echo "". $username . $roomType . $priceStan . $numStan . $priceLux . $numLux . $location . $amtRoom .  $currentDate . $fromDate  . $toDate .  "  .......     ";

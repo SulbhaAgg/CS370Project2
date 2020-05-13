@@ -3,11 +3,10 @@ include("permissions.php");
 $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
   or die ('Could not connect to the database server' . mysqli_connect_error());
 session_start();
-$currentDate = $_SESSION['currentDate'];
 ?>
 <html>
 <head>
-	<title>Hotel</title>
+	<title>Chain 1</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="app.css">
@@ -19,11 +18,11 @@ $currentDate = $_SESSION['currentDate'];
 	<div class="row">
 		<div class="col-lg-12">
 		<div id="content">
-			<h1>Hotels</h1>
-			<h2 class ="main">Select A Chain To View Hotels</h2>
+			<h1>Marriot</h1>
+			
 			
 			<hr>
-			<button class="btn btn-default btn-lg"><a href="Chains.php">Chains</button>
+			<button class="btn btn-default btn-lg"><a href="chainOneHotels.php">View Hotels</button>
 		  </div>	
 		</div>	
 	</div>	
@@ -44,19 +43,29 @@ $currentDate = $_SESSION['currentDate'];
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-<li class="active"><a href="landing.php">Home</a></li>
-<li><a href="Chains.php">Chains</a></li>
+<li><a href="landing.php">Home</a></li>
+<li><a href="chainOneHotels.php">Hotels</a></li>
+<li class="active"><a href="Chains.php">Chains</a></li>
 <li><a href="Map.php">Map</a></li>
-
 
 <?php 
 if($_SESSION['loggedin'] == true ){
-  echo '<li><a href="myReservations.php">Your Reservations</a></li>';
+  echo '<li ><a href="myReservations.php">Your Reservations</a></li>';
+if($_SESSION['admin1'] == 'yes'){
+  echo '<li><a href="hotelCreatorOne.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsOne.php">View All Reservations</a></li>';
+} else if($_SESSION['admin2'] == 'yes'){
+  echo '<li><a href="hotelCreatorTwo.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsTwo.php">View All Reservations</a></li>';
+} else if($_SESSION['admin3'] == 'yes'){
+  echo '<li><a href="hotelCreatorThree.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsThree.php">View All Reservations</a></li>';
+}
 }
 ?>
 <li><a href="Search.php">Search</a></li>
 <?php
-echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
+echo '<li><a href="#">' . $_SESSION['currentDate'] .'</a></li>';
 ?>
       </ul>
       

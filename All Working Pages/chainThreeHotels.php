@@ -6,7 +6,7 @@ session_start();
 ?>
 <html>
 <head>
-	<title>Chain 1 Hotels</title>
+	<title>Chain 3 Hotels</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="hotelView.css">
@@ -25,50 +25,46 @@ session_start();
   </div>  
 </div>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="landing.php"><i class="fa fa-building-o" aria-hidden="true"></i>Hotels</a>
-            </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="fa fa-building-o" aria-hidden="true"></i>Hotels</a>
+    </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="landing.php">Home</a></li>
-                    <li class="active"><a href="chainOneHotels.php">Hotels</a></li>
-                    <li><a href="Chains.php">Chains</a></li>
-                   <li><a href="Map.php">Map</a></li>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+<li><a href="landing.php">Home</a></li>
+<li class="active"><a href="chainThreeHotels.php">Hotels</a></li>
+<li ><a href="Chains.php">Chains</a></li>
+<li><a href="landing.php">Map</a></li>
+
 <?php 
 if($_SESSION['loggedin'] == true ){
-  echo '<li ><a href="myReservations.php">Your Reservations</a></li>';
-if($_SESSION['admin1'] == 'yes'){
+  echo '<li><a href="myReservations.php">Your Reservations</a></li>';
+}
+if( $_SESSION['loggedin'] == true && strcmp($_SESSION["admin1"],'yes') ==0){
   echo '<li><a href="hotelCreatorOne.php">Hotel Creation</a></li>';
   echo '<li><a href="allReservationsOne.php">View All Reservations</a></li>';
-} else if($_SESSION['admin2'] == 'yes'){
-  echo '<li><a href="hotelCreatorTwo.php">Hotel Creation</a></li>';
-  echo '<li><a href="allReservationsTwo.php">View All Reservations</a></li>';
-} else if($_SESSION['admin3'] == 'yes'){
-  echo '<li><a href="hotelCreatorThree.php">Hotel Creation</a></li>';
-  echo '<li><a href="allReservationsThree.php">View All Reservations</a></li>';
 }
-}
-?>
-<li><a href="Search.php">Search</a></li>
-<?php
-echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
 ?>
       </ul>
-      
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
       <ul class="nav navbar-nav navbar-right">
          <?php
-                    if($_SESSION['loggedin'] == false){
+                		if($_SESSION['loggedin'] == false){
                    echo '<li ><a href="hotelSignUp.php">Sign Up</a></li>';
                    echo '<li ><a href="hotelLog.php">Login</a></li>';
                 }
@@ -85,7 +81,6 @@ echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
         unset($_SESSION["dumbError"]);
     }
         ?>
-        <h3> Marriot </h3>
 <table class="table table-dark">
   <thead>
     <tr>
@@ -98,14 +93,14 @@ echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
     </tr>
   </thead>
   <tbody>
-   <?php
-    $chainCheckQuery = "SELECT id,hotelChain, hotelLocationI, hotelLocationJ, numLuxury, priceLuxury, numStandard, priceStandard FROM `hotel` WHERE hotelChain = 'Marriot'";
+ <?php
+    $chainCheckQuery = "SELECT id,hotelChain, hotelLocationI, hotelLocationJ, numLuxury, priceLuxury, numStandard, priceStandard FROM `hotel` WHERE hotelChain = 'Westin'";
     $chainCheck = mysqli_query($con,$chainCheckQuery)or die("Well that didn't work");
     $num_results = mysqli_num_rows($chainCheck);
 
     for($i = 1; $i <= $num_results; $i++ ){
       echo '<form action="chainOneBook.php" method="post">';
-      echo '<input type = "hidden" name = "hotelChain" value ="Marriot" >';
+      echo '<input type = "hidden" name = "hotelChain" value ="Westin" >';
       echo '<tr>';
       $row = mysqli_fetch_array($chainCheck);
       echo '<input type = "hidden" name = "locI" '. 'value ="' . $row['hotelLocationI'] . ',' . $row['hotelLocationJ'] .'">';

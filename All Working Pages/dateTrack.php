@@ -6,5 +6,5 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 session_start();
 
 $_SESSION['currentDate'] = mysqli_real_escape_string($con,$_POST["currentDate"]);
-header("Location: chainThreeHotelsTest.php");
+header("Location: landing.php");
 ?>

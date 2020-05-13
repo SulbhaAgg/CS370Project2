@@ -31,21 +31,32 @@ session_start();
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="landing.php">Home</a></li>
-                    <li><a href="About.html">About</a></li>
+                    <li><a href="chainOneHotels.php">Hotels</a></li>
                     <li><a href="Chains.php">Chains</a></li>
-                    <li id = "active"><a href="Map.php">Map</a></li>
-                    <li><a href="Reservations.php">View Reservations</a></li>
-                    <li ><a href="Search.php">Search for Hotel</a><li>
-                    
-                </ul>
-                <!-- <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form> -->
-                <ul class="nav navbar-nav navbar-right">
-                    <?php
+                   <li class="active"><a href="Map.php">Map</a></li>
+<?php 
+if($_SESSION['loggedin'] == true ){
+  echo '<li ><a href="myReservations.php">Your Reservations</a></li>';
+if($_SESSION['admin1'] == 'yes'){
+  echo '<li><a href="hotelCreatorOne.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsOne.php">View All Reservations</a></li>';
+} else if($_SESSION['admin2'] == 'yes'){
+  echo '<li><a href="hotelCreatorTwo.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsTwo.php">View All Reservations</a></li>';
+} else if($_SESSION['admin3'] == 'yes'){
+  echo '<li><a href="hotelCreatorThree.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsThree.php">View All Reservations</a></li>';
+}
+}
+?>
+<li><a href="Search.php">Search</a></li>
+<?php
+echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
+?>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+         <?php
                         if($_SESSION['loggedin'] == false){
                    echo '<li ><a href="hotelSignUp.php">Sign Up</a></li>';
                    echo '<li ><a href="hotelLog.php">Login</a></li>';
@@ -53,10 +64,10 @@ session_start();
                 else{echo'<li> <a href="hotelLogOut.php">Log Out</a></li>';
 
                 }?>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
     <h1 id = "title"> Hover over the red marked boxes to see which hotel is located there </h1>
     <table id = "Grid" class = "Grid"></table>

@@ -97,7 +97,7 @@ echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
   </thead>
   <tbody>
    <?php
-     $chainCheckQuery = "SELECT id,username, hotelChain, hotelLocation, roomType, dateBooked, fromDate, toDate,price, amtRoom FROM `reservations` WHERE hotelChain = 'Westin'";
+    $chainCheckQuery = "SELECT id,username, hotelChain, hotelLocation, roomType, dateBooked, fromDate, toDate,price, amtRoom FROM `reservations` WHERE hotelChain = 'Marriot'";
     $chainCheck = mysqli_query($con,$chainCheckQuery)or die("Well that didn't work");
     $num_results = mysqli_num_rows($chainCheck);
 
@@ -131,7 +131,8 @@ echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
         echo '</form>';
       }
     }
-    ?> </tbody>
+    ?>
+ </tbody>
 </table>
 </body>
 </html>

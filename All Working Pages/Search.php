@@ -14,38 +14,39 @@ session_start();
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="landing.php"><i class="fa fa-building-o" aria-hidden="true"></i>Hotels</a>
-            </div>
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><i class="fa fa-building-o" aria-hidden="true"></i>Hotels</a>
+    </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="landing.php">Home</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="Chains.php">Chains</a></li>
-                    <li><a href="Map.php">Map</a></li>
-                    <li ><a href="Reservations.php">View Reservations</a></li>
-                    <li id = "active"><a href="Search.php">Search for Hotel</a><li>
-                    
-                </ul>
-                <!-- <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form> -->
-                <ul class="nav navbar-nav navbar-right">
-                   <?php
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+<li><a href="landing.php">Home</a></li>
+<li><a href="Chains.php">Chain Select</a></li>
+<li><a href="Map.php">Map</a></li>
+
+<?php 
+if($_SESSION['loggedin'] == true ){
+  echo '<li><a href="myReservations.php">Your Reservations</a></li>';
+}
+?>
+<li class="active"><a href="Search.php">Search</a></li>
+<?php
+echo '<li><a href="#">' . $_SESSION['currentDate'] .'</a></li>';
+?>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+         <?php
                         if($_SESSION['loggedin'] == false){
                    echo '<li ><a href="hotelSignUp.php">Sign Up</a></li>';
                    echo '<li ><a href="hotelLog.php">Login</a></li>';
@@ -53,10 +54,10 @@ session_start();
                 else{echo'<li> <a href="hotelLogOut.php">Log Out</a></li>';
 
                 }?>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
     <div class = "search">
         <h1 id = "head">Hotel Search</h1>   
@@ -126,15 +127,14 @@ session_start();
                             <td>Price per night standard room: $' . $row['priceStandard'] . '</td>
                             <td>Amount Luxury Rooms Available: ' . $row['numLuxury'] . '</td>
                             <td>Price per night luxury room: $' . $row['priceLuxury'] . '</td></tr>';
-                            if($hotelChain == 'Marriot'){
+                            if($row['hotelChain'] == 'Marriot'){
                                 $hotelURL = "https://venus.cs.qc.cuny.edu/~bast8620/chainOneHotels.php";
-                            }else if($hotelChain == "Westin"){
+                            }else if($row['hotelChain']== "Courtyard"){
                                 $hotelURL = "https://venus.cs.qc.cuny.edu/~bast8620/chainTwoHotels.php";
                             }else{
                                $hotelURL = "https://venus.cs.qc.cuny.edu/~bast8620/chainThreeHotels.php";
                             }
-                           ' <tr><td><a href ="' . $hotelURL . '"<button>Book a room</button></td>
-                            <td><button>Cancel Reservation</button></td><tr><td id = "space"></td>
+                          echo ' <tr><td><a href ="' . $hotelURL . '"<button>Book a room</button></td>
                     </tr>';
                 }
                 echo '</table>';

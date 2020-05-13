@@ -3,7 +3,6 @@ include("permissions.php");
 $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
   or die ('Could not connect to the database server' . mysqli_connect_error());
 session_start();
-$currentDate = $_SESSION['currentDate'];
 ?>
 <html>
 <head>
@@ -20,10 +19,13 @@ $currentDate = $_SESSION['currentDate'];
 		<div class="col-lg-12">
 		<div id="content">
 			<h1>Hotels</h1>
-			<h2 class ="main">Select A Chain To View Hotels</h2>
-			
+			<h3><a href ="chainOne.php" >Marriot</a></h3>
+			<br>
+      <h3> <a href ="chainTwo.php" >Courtyard</a></h3>
+      <br>
+      <h3><a href ="chainThree.php" > Westin </a></h3>
 			<hr>
-			<button class="btn btn-default btn-lg"><a href="Chains.php">Chains</button>
+			
 		  </div>	
 		</div>	
 	</div>	
@@ -44,8 +46,8 @@ $currentDate = $_SESSION['currentDate'];
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-<li class="active"><a href="landing.php">Home</a></li>
-<li><a href="Chains.php">Chains</a></li>
+<li><a href="landing.php">Home</a></li>
+<li class="active"><a href="Chains.php">Chains</a></li>
 <li><a href="Map.php">Map</a></li>
 
 
@@ -62,7 +64,7 @@ echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
       
       <ul class="nav navbar-nav navbar-right">
          <?php
-                		if($_SESSION['loggedin'] == false){
+                    if($_SESSION['loggedin'] == false){
                    echo '<li ><a href="hotelSignUp.php">Sign Up</a></li>';
                    echo '<li ><a href="hotelLog.php">Login</a></li>';
                 }

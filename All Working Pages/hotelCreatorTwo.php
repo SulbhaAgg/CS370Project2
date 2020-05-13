@@ -76,24 +76,30 @@ mysqli_query($con, $inserthotelquery) or die("4: Insert hotel query failed"); //
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="landing.php">Home</a></li>
-                    <li><a href="About.html">About</a></li>
+                    <li><a href="chainOneHotels.php">Hotels</a></li>
                     <li><a href="Chains.php">Chains</a></li>
-                    <?php 
-if($_SESSION['loggedin'] == true && $_SESSION["admin1"] == "no"  ){
-  echo '<li><a href="myReservations.php">Your Reservations</a></li>';
+                   <li><a href="Map.php">Map</a></li>
+<?php 
+if($_SESSION['loggedin'] == true ){
+  echo '<li ><a href="myReservations.php">Your Reservations</a></li>';
+if($_SESSION['admin1'] == 'yes'){
+  echo '<li class="active"><a href="hotelCreatorOne.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsOne.php">View All Reservations</a></li>';
+} else if($_SESSION['admin2'] == 'yes'){
+  echo '<li class="active"><a href="hotelCreatorTwo.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsTwo.php">View All Reservations</a></li>';
+} else if($_SESSION['admin3'] == 'yes'){
+  echo '<li class="active"><a href="hotelCreatorThree.php">Hotel Creation</a></li>';
+  echo '<li><a href="allReservationsThree.php">View All Reservations</a></li>';
 }
-if($_SESSION["admin2"] == "yes"){
-  echo '<li class="active"><a href="hotelCreator.php">Hotel Creation</a></li>';
-  echo '<li><a href="allReservationsTwi.php">View All Reservations</a></li>';
 }
 ?>
+<li><a href="Search.php">Search</a></li>
+<?php
+echo '<li><a href="dateOpener.php">' . $_SESSION['currentDate'] .'</a></li>';
+?>
                 </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+                
                 <ul class="nav navbar-nav navbar-right">
                     <?php
                         if($_SESSION['loggedin'] == false){

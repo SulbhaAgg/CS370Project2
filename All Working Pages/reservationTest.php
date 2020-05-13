@@ -43,14 +43,14 @@ session_start();
 	<link href="http://fonts.googleapis.com/css?family=Alice:400,700" rel="stylesheet" type="text/css" />
 
 	<!--for navbar-->
-	<link rel="stylesheet" href="navbar/css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="navbar/css/style1.css">
+   <!-- <link rel="stylesheet" href="navbar/css/bootstrap-datepicker.css"> -->
+	<!--<link rel="stylesheet" href="navbar/css/style1.css"> -->
 
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/styleres.css" />
 	<style>
 		#header h1
 		{
@@ -73,20 +73,30 @@ session_start();
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-						<div class="searchbar">
-							<input type="text" name="search" placeholder="Search.." style="width:150px;">
-						</div>
-					</li>
-				<li class="nav-item" >
-					<div class="mb-3 mr-4" style="margin-left:8%; width: 120px;" >
-						<input type="text" class="form-control checkin_date" placeholder="date">
-					</div>
-				</li>
+				
 				
 					<li class="nav-item active margin" ><a href="index.php" class="nav-link" style="font-size: larger;"><b>Home</b></a></li>
 					<li class="nav-item"><a href="chains.php" class="nav-link" style="font-size: larger;" ><b>chains</b></a></li>
 					<li class="nav-item"><a href="map.php" class="nav-link" style="font-size: larger;"><b>Map</b></a></li>
+					<?php 
+if($_SESSION['loggedin'] == true ){
+  echo '<li class=" nav-item active" ><a href="myReservations.php" class="nav-link" style="font-size: larger;">Your Reservations</a></li>';
+if($_SESSION['admin1'] == 'yes'){
+  echo '<li class=" nav-item"><a href="hotelCreatorOne.php" class="nav-link" style="font-size: larger;">Hotel Creation</a></li>';
+  echo '<li class=" nav-item"><a href="allReservationsOne.php" class="nav-link" style="font-size: larger;">View All Reservations</a></li>';
+} else if($_SESSION['admin2'] == 'yes'){
+  echo '<li class=" nav-item"><a href="hotelCreatorTwo.php" class="nav-link" style="font-size: larger;">Hotel Creation</a></li>';
+  echo '<li class=" nav-item"><a href="allReservationsTwo.php" class="nav-link" style="font-size: larger;">View All Reservations</a></li>';
+} else if($_SESSION['admin3'] == 'yes'){
+  echo '<li class=" nav-item"><a href="hotelCreatorThree.php" class="nav-link" style="font-size: larger;">Hotel Creation</a></li>';
+  echo '<li class=" nav-item"><a href="allReservationsThree.php" class="nav-link" style="font-size: larger;">View All Reservations</a></li>';
+}
+}
+?>
+<li ><a href="Search.php" class="nav-link" style="font-size: larger;">Search</a></li>
+<?php
+echo '<li class=" nav-item"><a href="dateOpener.php" class="nav-link" style="font-size: larger;">' . $_SESSION['currentDate'] .'</a></li>';
+?>
 					<?php 
 					if($_SESSION['loggedin' == false]){
 					echo'<li class="nav-item"><a href="register and login/index.php" class="nav-link" style="font-size: larger;"><b>Log&nbsp;In</b></a></li>';
