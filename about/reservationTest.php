@@ -1,3 +1,40 @@
+
+<html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Reservation Page</title>
+
+	<!-- Google font -->
+	<link href="http://fonts.googleapis.com/css?family=Playfair+Display:900" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Alice:400,700" rel="stylesheet" type="text/css" />
+
+	<!--for navbar-->
+	<link rel="stylesheet" href="navbar/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="navbar/css/style1.css">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<style>
+		#header h1
+		{
+   	 		margin:0px;
+		}
+		body{
+    margin:0;
+}
+	</style>
+
+</head>
+</html>
 <?php
 
 include("permissions.php");
@@ -30,38 +67,7 @@ session_start();
 ?>
 <html lang="en">
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-	<title>Reservation Page</title>
-
-	<!-- Google font -->
-	<link href="http://fonts.googleapis.com/css?family=Playfair+Display:900" rel="stylesheet" type="text/css" />
-	<link href="http://fonts.googleapis.com/css?family=Alice:400,700" rel="stylesheet" type="text/css" />
-
-	<!--for navbar-->
-	<link rel="stylesheet" href="navbar/css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="navbar/css/style1.css">
-
-	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="css/styleres.css" />
-	<style>
-		#header h1
-		{
-   	 		margin:0px;
-		}
-		body{
-    margin:0;
-}
-	</style>
-
-</head>
+<html>
 
 <body style = "background: #fb929e42;">
 	  
