@@ -32,7 +32,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class=" nav">
+	    <div class="container">
 	      <a class="navbar-brand" href="about.php">likeHome</a>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
@@ -81,7 +81,7 @@
 			<div class="row justify-content-md-center">
 				<div class="col-md-4">
 					<div class="room-wrap ftco-animate">
-						<a href="register.html" class="img" style="background-image: url(images/hotel1.jpg);"></a>
+						<a href="chainOneHotels.php" class="img" style="background-image: url(images/hotel1.jpg);"></a>
 						<div class="text pt-4 pl-lg-5">
 							<h2><a href="chainOneHotels.php">JW Marriot</a></h2>
 							<p class="rate">
@@ -99,7 +99,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="room-wrap ftco-animate">
-						<a href="register.html" class="img" style="background-image: url(images/Hotel2.jpg);"></a>
+						<a href="chainTwoHotels.php" class="img" style="background-image: url(images/Hotel2.jpg);"></a>
 						<div class="text pt-4 pl-lg-5">
 							<h2><a href="chainTwoHotels.php">Courtyard</a></h2>
 							<p class="rate">
@@ -117,7 +117,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="room-wrap ftco-animate">
-						<a href="register.html" class="img" style="background-image: url(images/Hotel3.jpg);"></a>
+						<a href="chainThreeHotels.php" class="img" style="background-image: url(images/Hotel3.jpg);"></a>
 						<div class="text pt-4 pl-lg-5">
 							<h2><a href="chainThreeHotels.php">Westin</a></h2>
 							<p class="rate">

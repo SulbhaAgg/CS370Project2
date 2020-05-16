@@ -32,7 +32,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class=" nav">
+	    <div class="container">
 	      <a class="navbar-brand" href="about.php">likeHome</a>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
